@@ -18,24 +18,27 @@
 <resources>
     <declare-styleable name="HorizontalBarGraph">
 
-        <attr name="barColor" format="reference|color|integer" />
-        <attr name="axisColor" format="reference|color|integer" />
+        <attr name="barTextSize" format="dimension" />
         <attr name="barTextColor" format="reference|color|integer" />
-        <attr name="axisTextColor" format="reference|color|integer" />
-        <attr name="labelTextColor" format="reference|color|integer" />
-        <attr name="hideValue" format="boolean"/>
-        <attr name="hideLabels" format="boolean"/>
-        <attr name="hideAxis" format="boolean"/>
-        <attr name="shrinkRange" format="boolean" />
-        <attr name="stackFromBottom" format="boolean" />
-        <attr name="minRows" format="integer" />
+        <attr name="barColor" format="reference|color|integer" />
         <attr name="barHeight" format="dimension" />
         <attr name="barPadding" format="dimension" />
-        <attr name="axisPadding" format="dimension" />
-        <attr name="barTextSize" format="dimension" />
+        <attr name="stackBarsFromBottom" format="boolean" />
+        <attr name="hideValue" format="boolean"/>
+
         <attr name="axisTextSize" format="dimension" />
+        <attr name="axisTextColor" format="reference|color|integer" />
+        <attr name="axisColor" format="reference|color|integer" />
+        <attr name="axisPadding" format="dimension" />
+        <attr name="hideAxis" format="boolean"/>
+
         <attr name="labelTextSize" format="dimension" />
-        <attr name="sectionCount" format="integer" />
+        <attr name="labelTextColor" format="reference|color|integer" />
+        <attr name="hideLabels" format="boolean"/>
+
+        <attr name="shrinkRange" format="boolean" />
+        <attr name="minRows" format="integer" />
+        <attr name="maxSectionCount" format="integer" />
 
     </declare-styleable>
 </resources>

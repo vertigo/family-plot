@@ -1,0 +1,92 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:orientation="vertical"
+        tools:context="com.vertigo.familyplot.sample.MainActivity$PlaceholderFragment">
+
+
+        <TextView
+            style="@android:style/TextAppearance.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Horizontal Bar Graph"
+            />
+
+        <TextView
+            style="@android:style/TextAppearance.Small.Inverse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/gutter_xs"
+            android:paddingBottom="@dimen/gutter_sm"
+            android:textStyle="italic"
+            android:text="Default Settings"/>
+
+        <com.vertigo.familyplot.library.HorizontalBarGraph
+
+            android:id="@+id/hbg1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/gutter_lg"
+            android:layout_marginRight="@dimen/gutter_lg"
+            android:padding="@dimen/gutter_xl"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="@dimen/gutter_xl"
+            android:background="@android:color/darker_gray"
+            />
+
+
+        <TextView
+            style="@android:style/TextAppearance.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Horizontal Bar Graph"
+            />
+
+        <TextView
+            style="@android:style/TextAppearance.Small.Inverse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/gutter_xs"
+            android:paddingBottom="@dimen/gutter_xs"
+            android:textStyle="italic"
+            android:text="Custom Settings:"/>
+
+        <TextView
+            style="@android:style/TextAppearance.Small.Inverse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/gutter_sm"
+            android:paddingBottom="@dimen/gutter_sm"
+            android:text="barColor: holo_blue_dark\nshrinkRange: true\nminRows: 4\nmaxSectionCount: 3"/>
+
+        <com.vertigo.familyplot.library.HorizontalBarGraph
+
+            android:id="@+id/hbg2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/gutter_lg"
+            android:layout_marginRight="@dimen/gutter_lg"
+            android:padding="@dimen/gutter_xl"
+            app:barColor="@android:color/holo_blue_dark"
+            app:shrinkRange="true"
+            app:minRows="4"
+            app:maxSectionCount="3"  />
+
+    </LinearLayout>
+</ScrollView>

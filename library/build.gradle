@@ -16,7 +16,7 @@ android {
     buildToolsVersion ANDROID_BUILD_TOOLS_VERSION
 
     defaultConfig {
-        applicationId "com.vertigo.familyplot"
+        applicationId "com.vertigo.familyplot.library"
         minSdkVersion Integer.parseInt(ANDROID_BUILD_MIN_SDK_VERSION)
         targetSdkVersion Integer.parseInt(ANDROID_BUILD_TARGET_SDK_VERSION)
         versionCode Integer.parseInt(VERSION_CODE)
@@ -27,6 +27,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_7
         targetCompatibility JavaVersion.VERSION_1_7
     }
+    
     buildTypes {
         release {
             runProguard false
@@ -42,5 +43,4 @@ android {
 
 dependencies {
     compile 'com.google.guava:guava:17.+'
-    compile fileTree(dir: 'libs', include: ['*.jar'])
 }

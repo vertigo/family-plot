@@ -15,7 +15,7 @@
   -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.vertigo.familyplot">
+    package="com.vertigo.familyplot.library">
 
     <application
         android:allowBackup="true"

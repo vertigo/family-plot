@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.vertigo.familyplot;
+package com.vertigo.familyplot.library;
 
 import android.util.FloatMath;
 
@@ -26,6 +26,8 @@ class DataRange {
     private float min;
     private float max;
     private static final float[] intervals = new float[]{ .1f, .2f, .5f };
+
+    public static final DataRange NULL = new DataRange(new float[0], 5, false);
 
     DataRange(float[] points, int sections, boolean shrinkRange) {
         this.sections = sections;
@@ -93,6 +95,9 @@ class DataRange {
     }
 
     private void setMax(float[] array) {
+        if (array == null || array.length == 0){
+            return;
+        }
         float max = array[0];
         for (int i = 1; i < array.length; i++) {
             if (array[i] > max) {
@@ -103,6 +108,9 @@ class DataRange {
     }
 
     private void setMin(float[] array) {
+        if (array == null || array.length == 0){
+            return;
+        }
         float min = shrinkRange ? array[0] : 0;
         for (int i = 1; i < array.length; i++) {
             if (array[i] < min) {

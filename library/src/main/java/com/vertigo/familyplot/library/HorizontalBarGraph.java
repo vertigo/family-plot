@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.vertigo.familyplot;
+package com.vertigo.familyplot.library;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -35,11 +35,15 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
+import static com.vertigo.familyplot.library.utils.LogUtils.LOGW;
+import static com.vertigo.familyplot.library.utils.LogUtils.makeLogTag;
+
+// Inspired by https://github.com/andersericsson/ViewTutorialPart2
+
 public class HorizontalBarGraph extends View {
+    private static final String TAG = makeLogTag(HorizontalBarGraph.class);
 
-    // Inspired by https://github.com/andersericsson/ViewTutorialPart2
-
-    private DataRange dataRange;
+    private DataRange dataRange = DataRange.NULL;
     private List<Entry> datapoints;
     private Paint barPaint = new Paint();
     private Paint gridPaint = new Paint();
@@ -110,12 +114,16 @@ public class HorizontalBarGraph extends View {
             hideLabels = a.getBoolean(R.styleable.HorizontalBarGraph_hideLabels, false);
             hideAxis = a.getBoolean(R.styleable.HorizontalBarGraph_hideAxis, false);
             shrinkRange = a.getBoolean(R.styleable.HorizontalBarGraph_shrinkRange, false);
-            fromBottom = a.getBoolean(R.styleable.HorizontalBarGraph_stackFromBottom, false);
+            fromBottom = a.getBoolean(R.styleable.HorizontalBarGraph_stackBarsFromBottom, false);
             minRows = a.getInt(R.styleable.HorizontalBarGraph_minRows, 5);
             barTextSize = a.getDimension(R.styleable.HorizontalBarGraph_barTextSize, getResources().getDimension(R.dimen.bar_text_size));
             axisTextSize = a.getDimension(R.styleable.HorizontalBarGraph_axisTextSize, getResources().getDimension(R.dimen.bar_text_size));
             labelTextSize = a.getDimension(R.styleable.HorizontalBarGraph_labelTextSize, getResources().getDimension(R.dimen.bar_text_size));
-            sections = a.getInt(R.styleable.HorizontalBarGraph_sectionCount, 4);
+            sections = a.getInt(R.styleable.HorizontalBarGraph_maxSectionCount, 4);
+            if (sections < 1 || sections > 10){
+                sections = 4;
+                LOGW(TAG, "Max sections must be between 1 and 10");
+            }
             a.recycle();
         }
 
@@ -321,18 +329,11 @@ public class HorizontalBarGraph extends View {
     private void configureEditMode() {
         if (isInEditMode()) {
             List<Entry> datapoints = Arrays.asList(
-                    new Entry("Jan", 4.1f),
-                    new Entry("Feb", 4.5f),
-                    new Entry("Mar", 5.0f),
-                    new Entry("Apr", 4.3f),
-                    new Entry("May", 3.4f),
-                    new Entry("Jun", 5.1f),
-                    new Entry("Jul", 4.3f),
-                    new Entry("Aug", 4.4f),
-                    new Entry("Sep", 4.8f),
-                    new Entry("Oct", 4.3f),
-                    new Entry("Nov", 3.5f),
-                    new Entry("Dec", 4.0f));
+                    new Entry("P1", 4.1f),
+                    new Entry("P2", 4.5f),
+                    new Entry("P3", 5.0f),
+                    new Entry("P4", 4.3f),
+                    new Entry("P5", 3.4f));
             update(datapoints);
         }
     }
@@ -347,37 +348,35 @@ public class HorizontalBarGraph extends View {
         int heightMode = MeasureSpec.getMode(heightMeasureSpec);
         int heightSize = MeasureSpec.getSize(heightMeasureSpec);
 
-        int width, height;
 
-        //Determine Width
-        switch(widthMode){
-            case MeasureSpec.EXACTLY:
-                width = widthSize;
-                break;
-            case MeasureSpec.AT_MOST:
-                width = Math.min(drawRect.width() + getPaddingTop() + getPaddingBottom(), widthSize);
-                break;
-            case MeasureSpec.UNSPECIFIED:
-            default:
-                width = drawRect.width() + getPaddingTop() + getPaddingBottom();
-                break;
-        }
-
-        //Determine Height
-        switch(heightMode){
-            case MeasureSpec.EXACTLY:
-                height = heightSize;
-                break;
-            case MeasureSpec.AT_MOST:
-                height = Math.min(drawRect.height(), heightSize);
-                break;
-            case MeasureSpec.UNSPECIFIED:
-            default:
-                height = drawRect.height();
-                break;
-        }
+        int width = determineWidth(widthMode, widthSize);
+        int height = determineHeight(heightMode, heightSize);
 
         setMeasuredDimension(width, height);
+    }
+
+    private int determineHeight(int heightMode, int heightSize) {
+        switch(heightMode){
+            case MeasureSpec.EXACTLY:
+                return heightSize;
+            case MeasureSpec.AT_MOST:
+                return Math.min(drawRect.height(), heightSize);
+            case MeasureSpec.UNSPECIFIED:
+            default:
+                return drawRect.height();
+        }
+    }
+
+    private int determineWidth(int widthMode, int widthSize) {
+        switch(widthMode){
+            case MeasureSpec.EXACTLY:
+                return widthSize;
+            case MeasureSpec.AT_MOST:
+                return Math.min(drawRect.width() + getPaddingTop() + getPaddingBottom(), widthSize);
+            case MeasureSpec.UNSPECIFIED:
+            default:
+                return drawRect.width() + getPaddingTop() + getPaddingBottom();
+        }
     }
 
     @Override
@@ -386,21 +385,4 @@ public class HorizontalBarGraph extends View {
         drawRect.set(0, 0, w, h);
     }
 
-    public static class Entry{
-        String label;
-        float value;
-
-        public Entry(String label, float value) {
-            this.label = label;
-            this.value = value;
-        }
-
-        public String getLabel() {
-            return label;
-        }
-
-        public float getValue() {
-            return value;
-        }
-    }
 }
