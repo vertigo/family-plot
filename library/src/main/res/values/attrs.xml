@@ -18,7 +18,10 @@
 <resources>
     <declare-styleable name="HorizontalBarGraph">
 
+
+        <!-- Text size of the value at the end of the bar-->
         <attr name="barTextSize" format="dimension" />
+        <!-- Text color of the value at the end of the bar-->
         <attr name="barTextColor" format="reference|color|integer" />
         <attr name="barColor" format="reference|color|integer" />
         <attr name="barHeight" format="dimension" />
@@ -36,8 +39,16 @@
         <attr name="labelTextColor" format="reference|color|integer" />
         <attr name="hideLabels" format="boolean"/>
 
+        <!-- Range should compress to included values only -->
+        <!-- On a 1.0 scale with the lowest value being 2.5, the first gridline
+             will be 2.0. The last gridline may be influenced by the minimum
+             number of sections-->
         <attr name="shrinkRange" format="boolean" />
+
+        <!-- Minimum number of rows including data points provided (default: 5)-->
         <attr name="minRows" format="integer" />
+
+        <!-- number of sections (space between gridlines) to show (default: 4) -->
         <attr name="maxSectionCount" format="integer" />
 
     </declare-styleable>
