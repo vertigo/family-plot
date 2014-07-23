@@ -20,4 +20,9 @@
     <dimen name="bar_text_size">14sp</dimen>
     <dimen name="axis_text_size">12dp</dimen>
     <dimen name="gutter_sm">8dp</dimen>
+
+    <dimen name="arc_graph_container_width">60dp</dimen>
+    <dimen name="arc_graph_stroke_width">4dp</dimen>
+
+
 </resources>

@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.vertigo.familyplot.library.ArcGraph;
 import com.vertigo.familyplot.library.Entry;
 import com.vertigo.familyplot.library.HorizontalBarGraph;
 
@@ -45,6 +46,8 @@ public class MainActivity extends Activity {
 
         HorizontalBarGraph hbg1;
         HorizontalBarGraph hbg2;
+        ArcGraph arc1;
+        ArcGraph arc2;
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -52,6 +55,8 @@ public class MainActivity extends Activity {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
             hbg1 = (HorizontalBarGraph)rootView.findViewById(R.id.hbg1);
             hbg2 = (HorizontalBarGraph)rootView.findViewById(R.id.hbg2);
+            arc1 = (ArcGraph)rootView.findViewById(R.id.arc1);
+            arc2 = (ArcGraph)rootView.findViewById(R.id.arc2);
             return rootView;
         }
 
@@ -60,6 +65,9 @@ public class MainActivity extends Activity {
             super.onViewCreated(view, savedInstanceState);
             loadData(hbg1);
             loadData(hbg2);
+
+            arc1.setPercentage(.27f);
+            arc2.setPercentage(.42f);
         }
 
         private void loadData(HorizontalBarGraph graph) {
