@@ -71,7 +71,7 @@ public class MainActivity extends Activity {
         }
 
         private void loadData(HorizontalBarGraph graph) {
-            List<Entry> list = new ArrayList<>();
+            List<Entry> list = new ArrayList<Entry>();
             list.add(new Entry("P1", 3.4f));
             list.add(new Entry("P2", 5.3f));
             list.add(new Entry("P3", 2.8f));
