@@ -41,4 +41,12 @@
         <attr name="maxSectionCount" format="integer" />
 
     </declare-styleable>
+
+    <declare-styleable name="ArcGraph">
+        <attr name="android:textColor" />
+        <attr name="arcColor" format="reference|color|integer" />
+        <attr name="trackColor" format="reference|color|integer" />
+        <attr name="strokeWidth" format="reference|dimension|integer" />
+        <attr name="innerImage" format="reference" />
+    </declare-styleable>
 </resources>
