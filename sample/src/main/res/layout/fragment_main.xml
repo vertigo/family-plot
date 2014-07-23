@@ -88,5 +88,76 @@
             app:minRows="4"
             app:maxSectionCount="3"  />
 
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="@dimen/gutter_xl"
+            android:background="@android:color/darker_gray"
+            />
+
+
+        <TextView
+            style="@android:style/TextAppearance.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Arc Graph"
+            />
+
+        <TextView
+            style="@android:style/TextAppearance.Small.Inverse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/gutter_xs"
+            android:paddingBottom="@dimen/gutter_sm"
+            android:textStyle="italic"
+            android:text="Default Settings"/>
+
+
+        <com.vertigo.familyplot.library.ArcGraph
+            android:id="@+id/arc1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/gutter_xl"
+            android:layout_marginBottom="@dimen/gutter_xl"
+            android:background="@android:color/darker_gray"
+            />
+
+        <TextView
+            style="@android:style/TextAppearance.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Arc Graph"
+            />
+
+        <TextView
+            style="@android:style/TextAppearance.Small.Inverse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/gutter_xs"
+            android:paddingBottom="@dimen/gutter_xs"
+            android:textStyle="italic"
+            android:text="Custom Settings:"/>
+
+        <TextView
+            style="@android:style/TextAppearance.Small.Inverse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/gutter_sm"
+            android:paddingBottom="@dimen/gutter_sm"
+            android:text="arcColor: holo_blue_dark\narcTrack: holo_blue_bright\ninnerImage:ic_media_play"/>
+
+        <com.vertigo.familyplot.library.ArcGraph
+            android:id="@+id/arc2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:arcColor="@android:color/holo_blue_dark"
+            app:trackColor="@android:color/holo_blue_bright"
+            app:innerImage="@android:drawable/ic_media_play"/>
+
     </LinearLayout>
 </ScrollView>
