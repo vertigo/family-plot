@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2014 Vertigo Software, Inc.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+    <declare-styleable name="HorizontalBarGraph">
+
+        <attr name="barColor" format="reference|color|integer" />
+        <attr name="axisColor" format="reference|color|integer" />
+        <attr name="barTextColor" format="reference|color|integer" />
+        <attr name="axisTextColor" format="reference|color|integer" />
+        <attr name="labelTextColor" format="reference|color|integer" />
+        <attr name="hideValue" format="boolean"/>
+        <attr name="hideLabels" format="boolean"/>
+        <attr name="hideAxis" format="boolean"/>
+        <attr name="shrinkRange" format="boolean" />
+        <attr name="stackFromBottom" format="boolean" />
+        <attr name="minRows" format="integer" />
+        <attr name="barHeight" format="dimension" />
+        <attr name="barPadding" format="dimension" />
+        <attr name="axisPadding" format="dimension" />
+        <attr name="barTextSize" format="dimension" />
+        <attr name="axisTextSize" format="dimension" />
+        <attr name="labelTextSize" format="dimension" />
+        <attr name="sectionCount" format="integer" />
+
+    </declare-styleable>
+</resources>

@@ -1,0 +1,3 @@
+include ':familyplot-sample', ':familyplot'
+project(":familyplot").projectDir = new File("library")
+project(":familyplot-sample").projectDir = new File("sample")
